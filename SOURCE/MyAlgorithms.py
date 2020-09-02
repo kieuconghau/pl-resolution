@@ -19,10 +19,8 @@ class MyAlgorithms:
     # Read an input data from an input file into the Knowledge Base and Alpha.
     def read_input_data(self, input_filename: str):
         f = open(input_filename, 'r')
-        self.alpha = [f.readline()[:-1].split(Definition.OR_OPERATOR_DELIMETER.value)
-                      for _ in range(int(f.readline()))]
-        self.KB    = [f.readline()[:-1].split(Definition.OR_OPERATOR_DELIMETER.value)
-                      for _ in range(int(f.readline()))]
+        self.alpha = [f.readline()[:-1].split(Definition.OR_OPERATOR_DELIMETER.value) for _ in range(int(f.readline()))]
+        self.KB    = [f.readline()[:-1].split(Definition.OR_OPERATOR_DELIMETER.value) for _ in range(int(f.readline()))]
         self.alpha = self.standard_cnf_sentence(self.alpha)
         self.KB    = self.standard_cnf_sentence(self.KB)
         f.close()
@@ -173,3 +171,27 @@ class MyAlgorithms:
             if self.is_complentary_literals(clause[i], clause[i + 1]):
                 return True
         return False
+
+
+"""
+    # A pseudo code to improve the PL Resolution.
+    def pl_resolution(KB, alpha):
+        clauses = KB + negation(alpha)
+        new_clauses_list = []       # New clauses at each loop
+        
+        while True:
+            new_clauses_list.append([])
+            n = 
+            for i in range(len(clauses)):
+                for j in range(n + i + 1, len(clauses))):
+                    resolvents = resolve(clauses[i], clauses[j])
+                    if [] in resolvents:
+                        return True
+                    for resolvent in resolvents:
+                        if resolvent not in clauses:
+                            new_clauses_list.append(resolvent)
+                            
+            if len(new_clauses_list[-1]) == 0:
+                return False
+            clauses += new_clauses_list[-1]
+"""
