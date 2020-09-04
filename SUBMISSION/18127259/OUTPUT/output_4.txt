@@ -2,8 +2,9 @@
 R OR S
 -P OR Q
 P
-2
+3
 R
 Q OR S
+Q
 0
 NO

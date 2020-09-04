@@ -63,8 +63,8 @@ class MyAlgorithms:
         for new_clauses in self.new_clauses_list:
             f.write(str(len(new_clauses)) + '\n')
             for clause in new_clauses:
-                f.writelines(self.formated_clause(clause) + '\n')
-        f.writelines('YES\n') if self.solution else f.writelines('NO\n')
+                f.write(self.formated_clause(clause) + '\n')
+        f.write('YES\n') if self.solution else f.write('NO\n')
         f.close()
 
     ################################################# HELPER FUNCTIONS #################################################
